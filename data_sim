@@ -1,0 +1,40 @@
+from enum import Enum
+from dataclasses import dataclass, field
+from typing import List, Optional
+
+
+class Major(Enum):
+    STSDS = 1  # Statistics and Data Science
+    AMATH = 2  # Applied Mathematics
+    ECON = 3  # Economics
+    CMPSC = 4  # Computer Science
+
+
+@dataclass
+class Course:
+    id: str
+    full_title: str
+    prerequisite: List["Course"] = field(default_factory=list)
+
+
+"""
+@dataclass
+class Course:
+    id: str
+    quarter: str
+    title: str
+    full_title: str
+    description: str
+    prerequisite: List["Course"] = field(default_factory=list)
+    comments: str
+    additional_enrollment_info: str
+    restrictions: List["Major"] = field(default_factory=list)
+    college: str
+    grading option: str
+    units: int
+    delayed_sectioning: str
+    may_apply_to_GE_requirement: List["GE_requirement"] = field(default_factory=list)
+    textbook_information: str
+    waitlist_enabled: bool
+    waitlist_notes: str
+"""
